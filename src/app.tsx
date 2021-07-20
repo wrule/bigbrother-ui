@@ -1,6 +1,7 @@
 import { Component, Vue, Prop, Watch, Emit } from 'vue-property-decorator';
 import { VNode } from 'vue';
 import style from './app.module.scss';
+import bigbrother from '@/assets/bigbrother.jpg';
 
 @Component
 export default class App extends Vue {
@@ -8,9 +9,12 @@ export default class App extends Vue {
     return (
       <a-layout class={style.layout}>
         <a-layout-header class={style.header}>
-          <span>
-            <span class={style.first_name}>Big</span>
-            <span class={style.last_name}>Brother</span>
+          <span class={style.title}>
+            <span>
+              <span class={style.first_name}>Big</span>
+              <span class={style.last_name}>Brother</span>
+            </span>
+            <img class={style.bigbrother} src={bigbrother} />
           </span>
           <a-input-search
             size="large"
