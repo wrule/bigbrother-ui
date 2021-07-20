@@ -1,27 +1,43 @@
-.components-layout-demo-fixed {
-  .logo {
-    width: 120px;
-    height: 31px;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 16px 24px 16px 0;
-    float: left;
+html, body {
+  background-color: #e8e8e8!important;
+}
+
+.layout {
+  background: rgba(0, 0, 0, 0)!important;
+  .header {
+    color: white;
+    padding: 0px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .first_name {
+      font-size: 40px;
+      font-weight: bold;
+    }
+    .last_name {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .searcher {
+      width: 300px;
+    }
+  }
+  .body {
+    min-height: 320px;
+    background-color: white;
+    .sider {
+      .menu {
+        height: 100%;
+      }
+    }
+    .content {
+
+    }
+  }
+  .footer {
+    text-align: center;
+    color: #999999;
+    background-color: rgba(0, 0, 0, 0);
   }
 }
 
-.app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  .nav {
-    padding: 30px;
-    a {
-      font-weight: bold;
-      color: #2c3e50;
-      &:global(.router-link-exact-active) {
-        color: #42b983;
-      }
-    }
-  }
-}

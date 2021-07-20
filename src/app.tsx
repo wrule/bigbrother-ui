@@ -6,24 +6,32 @@ import style from './app.module.scss';
 export default class App extends Vue {
   public render(): VNode {
     return (
-      <a-layout class={style['components-layout-demo-fixed']}>
-        <a-layout-header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
-          <div class="logo" />
+      <a-layout class={style.layout}>
+        <a-layout-header class={style.header}>
+          <span>
+            <span class={style.first_name}>Big</span>
+            <span class={style.last_name}>Brother</span>
+          </span>
+          <a-input-search
+            size="large"
+            class={style.searcher}
+            placeholder="输入任意关键字后回车搜索"
+          />
         </a-layout-header>
-        <a-layout>
-          <a-layout-sider
-            width="200"
-            style={{ padding: '0 50px', marginTop: '64px', backgroundColor: 'white' }}>
+        <a-layout class={style.body}>
+          <a-layout-sider class={style.sider}>
+            <a-menu class={style.menu}>
+              <a-menu-item>项目</a-menu-item>
+              <a-menu-item>探针</a-menu-item>
+              <a-menu-item>Token</a-menu-item>
+            </a-menu>
           </a-layout-sider>
-          <a-layout-content
-            style={{ padding: '0 50px', marginTop: '64px' }}>
-            <div style={{ background: '#fff', padding: '24px', minHeight: '380px' }}>
-              Content
-            </div>
+          <a-layout-content class={style.content}>
+            <router-view />
           </a-layout-content>
         </a-layout>
-        <a-layout-footer style={{ textAlign: 'center' }}>
-          BigBrother ©2021 Created by Jimao
+        <a-layout-footer class={style.footer}>
+          <span>BigBrother ©2021 Created by Jimao</span>
         </a-layout-footer>
       </a-layout>
     );
