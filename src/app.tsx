@@ -6,13 +6,26 @@ import style from './app.module.scss';
 export default class App extends Vue {
   public render(): VNode {
     return (
-      <div class={style.app}>
-        <div class={style.nav}>
-          <router-link to="/">Home</router-link> |
-          <router-link to="/about">About</router-link>
-        </div>
-        <router-view/>
-      </div>
+      <a-layout class={style['components-layout-demo-fixed']}>
+        <a-layout-header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+          <div class="logo" />
+        </a-layout-header>
+        <a-layout>
+          <a-layout-sider
+            width="200"
+            style={{ padding: '0 50px', marginTop: '64px', backgroundColor: 'white' }}>
+          </a-layout-sider>
+          <a-layout-content
+            style={{ padding: '0 50px', marginTop: '64px' }}>
+            <div style={{ background: '#fff', padding: '24px', minHeight: '380px' }}>
+              Content
+            </div>
+          </a-layout-content>
+        </a-layout>
+        <a-layout-footer style={{ textAlign: 'center' }}>
+          BigBrother ©2021 Created by Jimao
+        </a-layout-footer>
+      </a-layout>
     );
   }
 }
