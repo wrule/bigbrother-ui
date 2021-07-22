@@ -22,7 +22,12 @@ const routes: Array<RouteConfig> = [
     path: '/project',
     name: 'project',
     component: () => import('@/views/project'),
-  }
+  },
+  {
+    path: '/project/:id',
+    name: 'project/detail',
+    component: () => import('@/views/project/detail'),
+  },
 ]
 
 const router = new VueRouter({
