@@ -46,6 +46,15 @@ export default class ViewProjectDetail extends Vue {
   public mounted() {
     this.updateProjectApiList();
   }
+  
+  private handleApiClick(api: any) {
+    this.$router.push({
+      name: 'xapi/history',
+      params: {
+        hash: api.hash,
+      },
+    });
+  }
 
   public render(): VNode {
     return (
@@ -60,8 +69,8 @@ export default class ViewProjectDetail extends Vue {
               columns={this.autoColumns}
               dataSource={this.autoList}
               scopedSlots={{
-                opts: () => {
-                  return <a-button type="link">查看历史</a-button>
+                opts: (field: any, row: any) => {
+                  return <a-button onClick={() => this.handleApiClick(row)} type="link">查看历史</a-button>
                 },
               }}>
               <p slot="expandedRowRender">123</p>

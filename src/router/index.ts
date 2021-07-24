@@ -28,6 +28,11 @@ const routes: Array<RouteConfig> = [
     name: 'project/detail',
     component: () => import('@/views/project/detail'),
   },
+  {
+    path: '/xapi/:hash/history',
+    name: 'xapi/history',
+    component: () => import('@/views/apiHistory'),
+  },
 ]
 
 const router = new VueRouter({
