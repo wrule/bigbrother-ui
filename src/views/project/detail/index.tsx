@@ -61,7 +61,7 @@ export default class ViewProjectDetail extends Vue {
               dataSource={this.autoList}
               scopedSlots={{
                 opts: () => {
-                  return <a-button type="link">详情</a-button>
+                  return <a-button type="link">查看历史</a-button>
                 },
               }}>
               <p slot="expandedRowRender">123</p>
