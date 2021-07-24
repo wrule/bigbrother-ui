@@ -2,6 +2,7 @@ import { Component, Vue, Prop, Watch, Emit } from 'vue-property-decorator';
 import { VNode } from 'vue';
 import style from './index.module.scss';
 import * as API from '@/api/api';
+import XApi from '@/components/xapi';
 
 @Component
 export default class ViewApiHistory extends Vue {
@@ -65,12 +66,15 @@ export default class ViewApiHistory extends Vue {
           </a-row>
           <a-row>
             <a-table
+              class={style.table}
               bordered
               columns={this.autoColumns}
               dataSource={this.autoList}
               scopedSlots={{
+                expandedRowRender: (row: any) => {
+                  return <XApi apiId={row.id} />;
+                },
               }}>
-              <p slot="expandedRowRender">123</p>
             </a-table>
           </a-row>
         </a-space>
