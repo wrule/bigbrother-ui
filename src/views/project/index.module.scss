@@ -1,3 +1,11 @@
 .com {
   padding: 20px;
+  .card {
+    cursor: pointer;
+    .infos {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
 }

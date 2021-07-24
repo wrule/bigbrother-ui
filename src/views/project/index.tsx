@@ -9,18 +9,51 @@ export default class ViewProject extends Vue {
       <div class={style.com}>
         <a-row gutter={16}>
           <a-col span={8}>
-            <a-card title="XSea">
-              <p>card content</p>
+            <a-card
+              class={style.card}
+              title="xsea">
+              <p class={style.infos}>
+                <a-statistic
+                  title="接口总数"
+                  value={11111}
+                />
+                <a-statistic
+                  title="记录总数"
+                  value={28282}
+                />
+              </p>
             </a-card>
           </a-col>
           <a-col span={8}>
-            <a-card title="XOcean">
-              <p>card content</p>
+            <a-card
+              class={style.card}
+              title="xsea">
+              <p class={style.infos}>
+                <a-statistic
+                  title="接口总数"
+                  value={11111}
+                />
+                <a-statistic
+                  title="记录总数"
+                  value={28282}
+                />
+              </p>
             </a-card>
           </a-col>
           <a-col span={8}>
-            <a-card title="XSpider">
-              <p>card content</p>
+            <a-card
+              class={style.card}
+              title="xsea">
+              <p class={style.infos}>
+                <a-statistic
+                  title="接口总数"
+                  value={11111}
+                />
+                <a-statistic
+                  title="记录总数"
+                  value={28282}
+                />
+              </p>
             </a-card>
           </a-col>
         </a-row>
