@@ -24,7 +24,7 @@ const routes: Array<RouteConfig> = [
     component: () => import('@/views/project'),
   },
   {
-    path: '/project/:id',
+    path: '/project/:name',
     name: 'project/detail',
     component: () => import('@/views/project/detail'),
   },

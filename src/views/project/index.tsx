@@ -33,6 +33,15 @@ export default class ViewProject extends Vue {
     this.projectInfos = await this.getAllProjectInfo();
   }
 
+  private handleCardClick(info: any) {
+    this.$router.push({
+      name: 'project/detail',
+      params: {
+        name: info.prjName,
+      },
+    });
+  }
+
   public mounted() {
     this.updateAllProjectInfo();
   }
@@ -46,7 +55,8 @@ export default class ViewProject extends Vue {
               {
                 info && <a-card
                   class={style.card}
-                  title={info.prjName}>
+                  title={info.prjName}
+                  onClick={() => this.handleCardClick(info)}>
                   <p class={style.infos}>
                     <a-statistic
                       title="接口总数"

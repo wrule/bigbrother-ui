@@ -1,6 +1,7 @@
 import { Component, Vue, Prop, Watch, Emit } from 'vue-property-decorator';
 import { VNode } from 'vue';
 import style from './index.module.scss';
+import * as API from '@/api/api';
 
 @Component
 export default class ViewProjectDetail extends Vue {
@@ -21,11 +22,29 @@ export default class ViewProjectDetail extends Vue {
   }
 
   public get autoList() {
-    return [
-      { httpMethod: 'get', httpPath: '/api/xsea/dashboard/trend' },
-      { httpMethod: 'post', httpPath: '/api/xsea/plan/goal/listInWorkspace' },
-      { httpMethod: 'post', httpPath: '/api/xsea/scene/querySceneDetail' },
-    ];
+    return this.apiList || [];
+  }
+
+  private async getProjectApiList(projectName: string) {
+    const rsp: any = await API.getProjectApiList({
+      projectName,
+    });
+    if (rsp.success) {
+      return rsp.data || [];
+    }
+    return [];
+  }
+
+  private apiList: any[] = [];
+
+  private async updateProjectApiList() {
+    const projectName = this.$route.params.name || '';
+    this.apiList = await this.getProjectApiList(projectName);
+    console.log(this.apiList);
+  }
+
+  public mounted() {
+    this.updateProjectApiList();
   }
 
   public render(): VNode {
