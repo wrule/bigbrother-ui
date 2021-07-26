@@ -10,14 +10,19 @@ export default class ViewApiHistory extends Vue {
   private get autoColumns() {
     return [
       {
+        key: 'watcherType',
+        dataIndex: 'watcherType',
+        title: '上报类型',
+      },
+      {
         key: 'watcherName',
         dataIndex: 'watcherName',
         title: '上报人',
       },
       {
-        key: 'watcherType',
-        dataIndex: 'watcherType',
-        title: '上报类型',
+        key: 'prjName',
+        dataIndex: 'prjName',
+        title: '所属项目',
       },
       {
         key: 'prjVersion',

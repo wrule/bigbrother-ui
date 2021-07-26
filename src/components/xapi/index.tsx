@@ -36,40 +36,48 @@ export default class XApi extends Vue {
   public render(): VNode {
     return (
       <div>
-        <a-descriptions
-          bordered
-          title="接口快照">
-          <a-descriptions-item label="HTTP方法">
-            {this.detail.httpMethod}
-          </a-descriptions-item>
-          <a-descriptions-item label="请求路径">
-            {this.detail.httpPath}
-          </a-descriptions-item>
-          <a-descriptions-item label="项目名">
-            {this.detail.prjName}
-          </a-descriptions-item>
-          <a-descriptions-item label="项目版本">
-            {this.detail.prjVersion}
-          </a-descriptions-item>
-          <a-descriptions-item label="接口Hash">
-            {this.detail.hash}
-          </a-descriptions-item>
-          <a-descriptions-item label="上报人">
-            {this.detail.watcherName}
-          </a-descriptions-item>
-          <a-descriptions-item label="上报类型">
-            {this.detail.watcherType}
-          </a-descriptions-item>
-          <a-descriptions-item label="上报时间">
-            {this.detail.reportTime}
-          </a-descriptions-item>
-        </a-descriptions>
-
-        <XCodeEditor
-          style="height: 320px"
-          lang="json"
-          value={this.rspData}
-        />
+        <a-form>
+          <a-form-item
+            label="基本信息">
+            <a-descriptions
+              bordered>
+              <a-descriptions-item label="HTTP方法">
+                {this.detail.httpMethod}
+              </a-descriptions-item>
+              <a-descriptions-item label="请求路径">
+                {this.detail.httpPath}
+              </a-descriptions-item>
+            </a-descriptions>
+          </a-form-item>
+          <a-form-item
+            label="出参数据">
+            <XCodeEditor
+              style="height: 320px"
+              lang="json"
+              value={this.rspData}
+            />
+          </a-form-item>
+          <a-form-item
+            label="出参模型">
+            <XCodeEditor
+              style="height: 320px"
+              lang="json"
+              value={this.rspData}
+            />
+          </a-form-item>
+          <a-form-item
+            label="入参数据">
+            <XCodeEditor
+              style="height: 320px"
+              lang="json"
+              value={this.rspData}
+            />
+          </a-form-item>
+          <a-form-item
+            label="HTTP信息">
+            <span>未完善</span>
+          </a-form-item>
+        </a-form>
       </div>
     );
   }
