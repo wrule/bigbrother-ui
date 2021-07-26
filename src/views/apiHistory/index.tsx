@@ -3,6 +3,7 @@ import { VNode } from 'vue';
 import style from './index.module.scss';
 import * as API from '@/api/api';
 import XApi from '@/components/xapi';
+import Moment from 'moment';
 
 @Component
 export default class ViewApiHistory extends Vue {
@@ -33,6 +34,7 @@ export default class ViewApiHistory extends Vue {
         key: 'reportTime',
         dataIndex: 'reportTime',
         title: '上报时间',
+        scopedSlots: { customRender: 'reportTime' },
       },
     ];
   }
@@ -78,6 +80,9 @@ export default class ViewApiHistory extends Vue {
               scopedSlots={{
                 expandedRowRender: (row: any) => {
                   return <XApi apiId={row.id} />;
+                },
+                reportTime: (value: any) => {
+                  return Moment(value).format('YYYY-MM-DD HH:mm:ss');
                 },
               }}>
             </a-table>
