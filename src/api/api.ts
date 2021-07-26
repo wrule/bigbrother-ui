@@ -11,3 +11,6 @@ export const getApiHistory =
 
 export const getApiHistoryDetail =
   (params: any) => http.get('/api/getApiHistoryDetail', { params });
+
+export const getLatestApi =
+  (params: any) => http.get('/api/getLatestApi', { params });

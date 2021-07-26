@@ -3,6 +3,7 @@ import { VNode } from 'vue';
 import style from './index.module.scss';
 import * as API from '@/api/api';
 import XHttpMethod from '@/components/httpMethod';
+import XApi from '@/components/xapi';
 
 @Component
 export default class ViewProjectDetail extends Vue {
@@ -72,6 +73,7 @@ export default class ViewProjectDetail extends Vue {
           </a-row>
           <a-row>
             <a-table
+              rowKey="hash"
               bordered
               size="middle"
               columns={this.autoColumns}
@@ -83,8 +85,16 @@ export default class ViewProjectDetail extends Vue {
                 opts: (field: any, row: any) => {
                   return <a onClick={() => this.handleApiClick(row)}>变更历史</a>
                 },
+                expandedRowRender: async (row: any) => {
+                  const rsp: any = await API.getLatestApi({
+                    hash: row.hash
+                  });
+                  if (rsp.success) {
+                    const id = rsp.data.id;
+                    return <XApi apiId={id} />;
+                  }
+                },
               }}>
-              <p slot="expandedRowRender">123</p>
             </a-table>
           </a-row>
         </a-space>
