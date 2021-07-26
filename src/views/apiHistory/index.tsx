@@ -75,6 +75,7 @@ export default class ViewApiHistory extends Vue {
             <a-table
               class={style.table}
               bordered
+              rowKey="id"
               columns={this.autoColumns}
               dataSource={this.autoList}
               scopedSlots={{
