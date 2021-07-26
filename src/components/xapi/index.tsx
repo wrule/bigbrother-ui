@@ -39,7 +39,9 @@ export default class XApi extends Vue {
   public render(): VNode {
     return (
       <div class={style.com}>
-        <a-tabs default-active-key="1">
+        <a-tabs
+          default-active-key="response"
+          animated={false}>
           <a-tab-pane key="base" tab="基本信息">
             <a-descriptions style="width: 100%;" bordered>
               <a-descriptions-item label="HTTP方法">
