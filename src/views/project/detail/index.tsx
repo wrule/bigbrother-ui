@@ -19,10 +19,17 @@ export default class ViewProjectDetail extends Vue {
       },
       { key: 'httpPath', dataIndex: 'httpPath', title: '接口路径', },
       {
+        key: 'apiHistoryNum',
+        dataIndex: 'apiHistoryNum',
+        title: '变更次数',
+        width: 80,
+        align: 'center',
+      },
+      {
         key: 'opts',
         dataIndex: 'opts',
         title: '操作',
-        width: 100,
+        width: 80,
         scopedSlots: { customRender: 'opts' },
         align: 'center',
       },
@@ -83,7 +90,10 @@ export default class ViewProjectDetail extends Vue {
                   return <XHttpMethod method={value} />;
                 },
                 opts: (field: any, row: any) => {
-                  return <a onClick={() => this.handleApiClick(row)}>变更历史</a>
+                  return <a
+                    onClick={() => this.handleApiClick(row)}>
+                    变更历史
+                  </a>
                 },
                 expandedRowRender: (row: any) => {
                   return <XApi apiId={row.apiLatestId} />;
