@@ -50,3 +50,11 @@ html, body {
   }
 }
 
+
+:global(.ant-table-wrapper) {
+  :global(.ant-table-expanded-row) {
+    td:last-of-type {
+      background-color: white;
+    }
+  }
+}
