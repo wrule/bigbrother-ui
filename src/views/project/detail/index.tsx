@@ -85,14 +85,8 @@ export default class ViewProjectDetail extends Vue {
                 opts: (field: any, row: any) => {
                   return <a onClick={() => this.handleApiClick(row)}>变更历史</a>
                 },
-                expandedRowRender: async (row: any) => {
-                  const rsp: any = await API.getLatestApi({
-                    hash: row.hash
-                  });
-                  if (rsp.success) {
-                    const id = rsp.data.id;
-                    return <XApi apiId={id} />;
-                  }
+                expandedRowRender: (row: any) => {
+                  return <XApi apiId={row.apiLatestId} />;
                 },
               }}>
             </a-table>

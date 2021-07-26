@@ -5,6 +5,14 @@ import bigbrother from '@/assets/bigbrother.jpg';
 
 @Component
 export default class App extends Vue {
+
+  private handleMenuClick(menu: any) {
+    const key = menu.key;
+    this.$router.push({
+      name: key,
+    });
+  }
+
   public render(): VNode {
     return (
       <a-layout class={style.layout}>
@@ -24,10 +32,12 @@ export default class App extends Vue {
         </a-layout-header>
         <a-layout class={style.body}>
           <a-layout-sider class={style.sider}>
-            <a-menu class={style.menu}>
-              <a-menu-item>项目</a-menu-item>
-              <a-menu-item>探针</a-menu-item>
-              <a-menu-item>Token</a-menu-item>
+            <a-menu
+              class={style.menu}
+              onClick={this.handleMenuClick}>
+              <a-menu-item key="project">项目</a-menu-item>
+              <a-menu-item key="agent">探针</a-menu-item>
+              <a-menu-item key="token">Token</a-menu-item>
             </a-menu>
           </a-layout-sider>
           <a-layout-content class={style.content}>
