@@ -1,3 +1,7 @@
 .com {
-
+  .form {
+    :global(.ant-form-item-label) {
+      font-weight: bold;
+    }
+  }
 }

@@ -1,24 +1,25 @@
-/* eslint-disable*/
 import { Component, Vue, Prop, Watch, Emit } from 'vue-property-decorator';
 import { VNode } from 'vue';
 import style from './index.module.scss';
 import * as Monaco from 'monaco-editor';
-const monaco = require('monaco-editor/esm/vs/editor/editor.api');
 
 @Component
 export default class XCodeEditor extends Vue {
   /**
    * 内容（双向绑定）
    */
-  @Prop({ default: '' }) private readonly value!: string;
+  @Prop({ default: '' })
+  private readonly value!: string;
   /**
    * 当前语法支持
    */
-  @Prop({ default: '' }) private readonly lang!: string;
+  @Prop({ default: '' })
+  private readonly lang!: string;
   /**
    * 是否只读
    */
-  @Prop({ default: false }) private readonly readonly!: boolean;
+  @Prop({ default: false })
+  private readonly readonly!: boolean;
 
   private code = '';
 
@@ -46,7 +47,7 @@ export default class XCodeEditor extends Vue {
    * 初始化编辑器组件
    */
   private initEditor() {
-    this.editor = monaco.editor.create(this.$el as any, {
+    this.editor = Monaco.editor.create(this.$el as any, {
       language: this.lang,
       value: this.code,
       fontSize: 14,
@@ -69,9 +70,6 @@ export default class XCodeEditor extends Vue {
     return (
       <div
         class={style.com}>
-        <div
-          class={style.container}>
-        </div>
       </div>
     );
   }

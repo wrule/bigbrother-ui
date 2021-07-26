@@ -35,8 +35,8 @@ export default class XApi extends Vue {
 
   public render(): VNode {
     return (
-      <div>
-        <a-form>
+      <div class={style.com}>
+        <a-form class={style.form}>
           <a-form-item
             label="基本信息">
             <a-descriptions
@@ -53,6 +53,7 @@ export default class XApi extends Vue {
             label="出参数据">
             <XCodeEditor
               style="height: 320px"
+              readonly={true}
               lang="json"
               value={this.rspData}
             />
@@ -61,6 +62,7 @@ export default class XApi extends Vue {
             label="出参模型">
             <XCodeEditor
               style="height: 320px"
+              readonly={true}
               lang="json"
               value={this.rspData}
             />
@@ -69,6 +71,7 @@ export default class XApi extends Vue {
             label="入参数据">
             <XCodeEditor
               style="height: 320px"
+              readonly={true}
               lang="json"
               value={this.rspData}
             />
