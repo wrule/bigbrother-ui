@@ -34,6 +34,7 @@ export default class ViewApiHistory extends Vue {
         key: 'reportTime',
         dataIndex: 'reportTime',
         title: '上报时间',
+        width: 180,
         scopedSlots: { customRender: 'reportTime' },
       },
     ];
@@ -74,6 +75,7 @@ export default class ViewApiHistory extends Vue {
           <a-row>
             <a-table
               class={style.table}
+              size="middle"
               bordered
               rowKey="id"
               columns={this.autoColumns}

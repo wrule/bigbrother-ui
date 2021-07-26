@@ -2,19 +2,26 @@ import { Component, Vue, Prop, Watch, Emit } from 'vue-property-decorator';
 import { VNode } from 'vue';
 import style from './index.module.scss';
 import * as API from '@/api/api';
+import XHttpMethod from '@/components/httpMethod';
 
 @Component
 export default class ViewProjectDetail extends Vue {
 
   public get autoColumns() {
     return [
-      { key: 'httpMethod', dataIndex: 'httpMethod', title: 'HTTP方法', width: 100, },
+      {
+        key: 'httpMethod',
+        dataIndex: 'httpMethod',
+        title: 'HTTP方法',
+        width: 100,
+        scopedSlots: { customRender: 'httpMethod' },
+      },
       { key: 'httpPath', dataIndex: 'httpPath', title: '接口路径', },
       {
         key: 'opts',
         dataIndex: 'opts',
         title: '操作',
-        width: 80,
+        width: 100,
         scopedSlots: { customRender: 'opts' },
         align: 'center',
       },
@@ -66,11 +73,15 @@ export default class ViewProjectDetail extends Vue {
           <a-row>
             <a-table
               bordered
+              size="middle"
               columns={this.autoColumns}
               dataSource={this.autoList}
               scopedSlots={{
+                httpMethod: (value: any, row: any) => {
+                  return <XHttpMethod method={value} />;
+                },
                 opts: (field: any, row: any) => {
-                  return <a-button onClick={() => this.handleApiClick(row)} type="link">查看历史</a-button>
+                  return <a onClick={() => this.handleApiClick(row)}>变更历史</a>
                 },
               }}>
               <p slot="expandedRowRender">123</p>
